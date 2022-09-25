@@ -16,13 +16,14 @@ import com.example.beachapplication.ui.theme.BeachApplicationTheme
 @Composable
 fun CardRow(
     modifier: Modifier = Modifier,
+    onClick: ( )->Unit
 ) {
     LazyRow(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         modifier = modifier
     ) {
         items(beachData) { item ->
-            QuickCard(item.drawable, item.text, Clicked = {})
+            QuickCard(item.drawable, item.text, click = onClick )
         }
     }
 }
@@ -33,7 +34,6 @@ fun CardRow(
 fun CardPreview() {
     BeachApplicationTheme() {
 
-        CardRow()
 
     }
 }

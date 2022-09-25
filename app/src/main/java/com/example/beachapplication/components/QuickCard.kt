@@ -1,23 +1,23 @@
 package com.example.beachapplication.components
 
-import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -34,25 +34,23 @@ fun QuickCard(
     @DrawableRes drawable: Int = R.drawable.carbay,
     @StringRes text: Int = R.string.carbay,
     modifier: Modifier = Modifier,
-    Clicked: () -> Unit
+    click : () -> Unit
+
 ) {
-    
+
+
+
+
     Surface(
 
         modifier
             .width(width = 158.dp)
             .height(height = 201.dp)
             .clickable(
-
-                onClick = {
-
-                    Clicked
-
-                }
+                onClick = click
             ),
         shape = RoundedCornerShape(16.dp),
         elevation = 5.dp,
-
         ) {
 
 

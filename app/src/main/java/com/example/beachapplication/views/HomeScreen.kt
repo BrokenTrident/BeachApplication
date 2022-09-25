@@ -21,6 +21,10 @@ import com.example.beachapplication.ui.theme.BeachApplicationTheme
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
 
+    var showBeachCard by remember {
+        mutableStateOf(false)
+    }
+
     Column(
         modifier
             .verticalScroll(rememberScrollState())
@@ -42,13 +46,29 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         SearchBar()
 
         HomeSection(title = R.string.beach_row_title) {
-            CardRow()
+            CardRow(onClick = { showBeachCard = true})
         }
         Spacer(modifier = Modifier.height(10.dp))
 
+
+        if (showBeachCard) {
+
+                HomeSection(title = R.string.details) {
+                    BeachCard(
+                        drawable = R.drawable.carbay,
+                        text = R.string.carbay
+                    )
+                }
+        }
+
+
+
+
+
+
         Spacer(modifier = Modifier.height(10.dp))
 
-        HomeSection(title = R.string.safety,modifier.height(1000.dp)) {
+        HomeSection(title = R.string.safety, modifier.height(1000.dp)) {
             Spacer(modifier = Modifier.height(10.dp))
             SafetyColumn(modifier.padding(start = 10.dp, end = 10.dp))
         }
