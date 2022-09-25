@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Beach Application</string>
+    <string name="pebbles">Pebbles Beach</string>
+    <string name="hazard_title">Flags &amp; Signs</string>
+    <string name="placeholder_search">Search Here</string>
+    <string name="home_section">Discover our beaches</string>
+    <string name="beach_row_title">Beaches</string>
+    <string name="safety">Safety</string>
+    <string name="details">Details</string>
+    <string name="rockley">Rockley Beach</string>
+    <string name="needhams_point">Needham\'s Point</string>
+    <string name="carbay">Carlisle Bay</string>
+    <string name="rip_currents">Rip Currents</string>
+
+</resources>
