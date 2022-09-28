@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.beachapplication.R
 import com.example.beachapplication.components.*
+import com.example.beachapplication.model.cardData
 import com.example.beachapplication.ui.theme.BeachApplicationTheme
 
 @Composable
@@ -46,7 +47,10 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         SearchBar()
 
         HomeSection(title = R.string.beach_row_title) {
-            CardRow(onClick = { showBeachCard = true})
+            CardRow(onClick = {
+                showBeachCard = true
+
+            })
         }
         Spacer(modifier = Modifier.height(10.dp))
 

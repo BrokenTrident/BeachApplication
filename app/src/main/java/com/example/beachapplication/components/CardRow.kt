@@ -9,21 +9,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.beachapplication.model.Cards
 import com.example.beachapplication.model.beachData
+import com.example.beachapplication.model.cardData
 import com.example.beachapplication.ui.theme.BeachApplicationTheme
 
 
 @Composable
 fun CardRow(
     modifier: Modifier = Modifier,
+    cardList: List<Cards> = cardData,
     onClick: ( )->Unit
 ) {
     LazyRow(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         modifier = modifier
     ) {
-        items(beachData) { item ->
-            QuickCard(item.drawable, item.text, click = onClick )
+        items(cardList) { item ->
+            QuickCard(item.title, item.imageRes, click = onClick )
         }
     }
 }

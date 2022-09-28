@@ -31,8 +31,8 @@ import com.example.beachapplication.ui.theme.BeachApplicationTheme
 
 @Composable
 fun QuickCard(
-    @DrawableRes drawable: Int = R.drawable.carbay,
-    @StringRes text: Int = R.string.carbay,
+    title:String,
+    imageRes: Int,
     modifier: Modifier = Modifier,
     click : () -> Unit
 
@@ -48,6 +48,7 @@ fun QuickCard(
             .height(height = 201.dp)
             .clickable(
                 onClick = click
+
             ),
         shape = RoundedCornerShape(16.dp),
         elevation = 5.dp,
@@ -56,7 +57,7 @@ fun QuickCard(
 
 
             Image(
-                painter = painterResource(drawable),
+                painter = painterResource(imageRes),
                 contentDescription = "Shape",
                 contentScale = ContentScale.FillBounds,
                 modifier = Modifier
@@ -82,7 +83,7 @@ fun QuickCard(
             modifier = Modifier.padding(start = 10.dp)
         ) {
             Text(
-                text = stringResource(text),
+                text = title,
                 style = TextStyle(
                     Color.White,
                     fontSize = 20.sp,
