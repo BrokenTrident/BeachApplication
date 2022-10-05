@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,7 +23,7 @@ import com.example.beachapplication.ui.theme.BeachApplicationTheme
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
 
-    var index by remember {
+    var index by rememberSaveable {
         mutableStateOf(0)
     }
 
@@ -59,7 +60,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         Spacer(modifier = Modifier.height(10.dp))
 
 
-        if (index == 1) {
+        /*if (index == 1) {
 
             HomeSection(title = R.string.details) {
                 BeachCard(
@@ -67,8 +68,18 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     text = R.string.carbay
                 )
             }
+        }*/
+        
+        when(index){
+            
+            1-> BeachCard(drawable = R.drawable.carbay, text =R.string.carbay )
+            2-> BeachCard(drawable = R.drawable.pebbles, text =R.string.pebbles )
+            3-> BeachCard(drawable = R.drawable.barbados_rockley_beach, text = R.string.needhams_point )
+            else ->{
+                Text(text = "Index no $index")
+            }
+            
         }
-
 
 
 

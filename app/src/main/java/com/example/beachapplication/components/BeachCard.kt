@@ -54,7 +54,7 @@ fun BeachCard(
 
                 )
             Text(
-                stringResource(id = R.string.pebbles),
+                stringResource(text),
                 modifier = Modifier
                     .align(alignment = Alignment.Start),
                 style = MaterialTheme.typography.h4
