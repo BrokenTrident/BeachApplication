@@ -10,7 +10,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.beachapplication.model.Cards
-import com.example.beachapplication.model.beachData
 import com.example.beachapplication.model.cardData
 import com.example.beachapplication.ui.theme.BeachApplicationTheme
 
@@ -19,14 +18,23 @@ import com.example.beachapplication.ui.theme.BeachApplicationTheme
 fun CardRow(
     modifier: Modifier = Modifier,
     cardList: List<Cards> = cardData,
-    onClick: ( )->Unit
+    onClick: (Int)->Unit
 ) {
     LazyRow(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         modifier = modifier
     ) {
-        items(cardList) { item ->
-            QuickCard(item.title, item.imageRes, click = onClick )
+        items(
+
+            cardList,
+            key = {
+                it.id
+            }
+
+        ) { item ->
+            QuickCard(item.id,item.title, item.imageRes, click = {
+               onClick(item.id)
+            })
         }
     }
 }
@@ -35,7 +43,7 @@ fun CardRow(
 @Preview(showBackground = true, backgroundColor = 0xFFF0EAE2)
 @Composable
 fun CardPreview() {
-    BeachApplicationTheme() {
+    BeachApplicationTheme {
 
 
     }
