@@ -1,29 +1,30 @@
 package com.example.beachapplication.views
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.*
+import androidx.compose.material.Icon
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.beachapplication.R
 import com.example.beachapplication.components.*
-import com.example.beachapplication.model.cardData
+import com.example.beachapplication.model.Cards
 import com.example.beachapplication.ui.theme.BeachApplicationTheme
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
 
-    var showBeachCard by remember {
-        mutableStateOf(false)
+    var index by rememberSaveable {
+        mutableStateOf(0)
     }
 
     Column(
@@ -47,24 +48,38 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         SearchBar()
 
         HomeSection(title = R.string.beach_row_title) {
-            CardRow(onClick = {
-                showBeachCard = true
+            CardRow(
+                onClick = {
+                    index = it
+                },
 
-            })
+
+
+            )
         }
         Spacer(modifier = Modifier.height(10.dp))
 
 
-        if (showBeachCard) {
+        /*if (index == 1) {
 
-                HomeSection(title = R.string.details) {
-                    BeachCard(
-                        drawable = R.drawable.carbay,
-                        text = R.string.carbay
-                    )
-                }
+            HomeSection(title = R.string.details) {
+                BeachCard(
+                    drawable = R.drawable.carbay,
+                    text = R.string.carbay
+                )
+            }
+        }*/
+        
+        when(index){
+            
+            1-> BeachCard(drawable = R.drawable.carbay, text =R.string.carbay )
+            2-> BeachCard(drawable = R.drawable.pebbles, text =R.string.pebbles )
+            3-> BeachCard(drawable = R.drawable.barbados_rockley_beach, text = R.string.needhams_point )
+            else ->{
+                Text(text = "Index no $index")
+            }
+            
         }
-
 
 
 
@@ -82,13 +97,13 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 @Composable
 fun FullApp() {
 
-        Scaffold(
-            modifier = Modifier,
-            bottomBar = { BottomNav() },
+    Scaffold(
+        modifier = Modifier,
+        bottomBar = { BottomNav() },
 
         ) { padding ->
-            HomeScreen(Modifier.padding(padding))
-        }
+        HomeScreen(Modifier.padding(padding))
+    }
 
 }
 
