@@ -53,6 +53,7 @@ fun HomeScreen(
 
         HomeSection(title = R.string.beach_row_title) {
             CardRow(
+                modifier.padding(start = 10.dp),
                 onClick = {
                     index = it
                 },
@@ -78,7 +79,7 @@ fun HomeScreen(
             
             1-> BeachCard(drawable = R.drawable.carbay, text =R.string.carbay )
             2-> BeachCard(drawable = R.drawable.pebbles, text =R.string.pebbles )
-            3-> BeachCard(drawable = R.drawable.barbados_rockley_beach, text = R.string.needhams_point )
+            3-> BeachCard(drawable = R.drawable.needhams_point_beach, text = R.string.needhams_point )
             else ->{
                 Text(text = "Index no $index")
             }
