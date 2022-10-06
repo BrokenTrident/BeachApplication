@@ -1,5 +1,7 @@
 package com.example.beachapplication.components
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -15,6 +17,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -26,8 +29,8 @@ import com.example.beachapplication.ui.theme.BeachApplicationTheme
 @Composable
 fun QuickCard(
     id: Int,
-    title:String,
-    imageRes: Int,
+    @StringRes title: Int,
+    @DrawableRes imageRes: Int,
     modifier: Modifier = Modifier,
     click : (Int) -> Unit
 
@@ -41,8 +44,8 @@ fun QuickCard(
         modifier
             .width(width = 158.dp)
             .height(height = 201.dp)
-            .clickable{
-                      click(id)
+            .clickable {
+                click(id)
             },
         shape = RoundedCornerShape(16.dp),
         elevation = 5.dp,
@@ -77,7 +80,7 @@ fun QuickCard(
             modifier = Modifier.padding(start = 10.dp)
         ) {
             Text(
-                text = title,
+                text = stringResource(title),
                 style = TextStyle(
                     Color.White,
                     fontSize = 20.sp,
