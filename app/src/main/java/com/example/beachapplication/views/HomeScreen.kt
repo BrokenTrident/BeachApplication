@@ -19,9 +19,13 @@ import com.example.beachapplication.R
 import com.example.beachapplication.components.*
 import com.example.beachapplication.model.Cards
 import com.example.beachapplication.ui.theme.BeachApplicationTheme
+import com.example.beachapplication.viewmodel.ViewModel
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(
+    viewModel: ViewModel = ViewModel(),
+    modifier: Modifier = Modifier,
+) {
 
     var index by rememberSaveable {
         mutableStateOf(0)
@@ -49,6 +53,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 
         HomeSection(title = R.string.beach_row_title) {
             CardRow(
+                modifier.padding(start = 10.dp),
                 onClick = {
                     index = it
                 },
@@ -74,7 +79,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             
             1-> BeachCard(drawable = R.drawable.carbay, text =R.string.carbay )
             2-> BeachCard(drawable = R.drawable.pebbles, text =R.string.pebbles )
-            3-> BeachCard(drawable = R.drawable.barbados_rockley_beach, text = R.string.needhams_point )
+            3-> BeachCard(drawable = R.drawable.needhams_point_beach, text = R.string.needhams_point )
             else ->{
                 Text(text = "Index no $index")
             }
@@ -102,7 +107,7 @@ fun FullApp() {
         bottomBar = { BottomNav() },
 
         ) { padding ->
-        HomeScreen(Modifier.padding(padding))
+        HomeScreen(ViewModel(),Modifier.padding(padding))
     }
 
 }

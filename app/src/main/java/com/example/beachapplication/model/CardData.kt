@@ -8,22 +8,22 @@ val cardData = listOf(
 
     Cards(
         1,
-        "Pebbles beach",
+        R.string.carbay,
          R.drawable.carbay
     ),
     Cards(
         2,
-        "Pebbles beach",
-        R.drawable.carbay
+        R.string.pebbles,
+        R.drawable.pebbles
     ),
     Cards(
         3,
-        "Pebbles beach",
-        R.drawable.carbay
+        R.string.needhams_point,
+        R.drawable.needhams_point_beach
     ),
     Cards(
         4,
-        "Pebbles beach",
+        R.string.carbay,
         R.drawable.carbay
     ),
 
