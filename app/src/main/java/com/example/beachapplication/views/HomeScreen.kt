@@ -19,9 +19,13 @@ import com.example.beachapplication.R
 import com.example.beachapplication.components.*
 import com.example.beachapplication.model.Cards
 import com.example.beachapplication.ui.theme.BeachApplicationTheme
+import com.example.beachapplication.viewmodel.ViewModel
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(
+    viewModel: ViewModel = ViewModel(),
+    modifier: Modifier = Modifier,
+) {
 
     var index by rememberSaveable {
         mutableStateOf(0)
@@ -102,7 +106,7 @@ fun FullApp() {
         bottomBar = { BottomNav() },
 
         ) { padding ->
-        HomeScreen(Modifier.padding(padding))
+        HomeScreen(ViewModel(),Modifier.padding(padding))
     }
 
 }
