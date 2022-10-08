@@ -1,5 +1,6 @@
 package com.example.beachapplication.components
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -16,8 +17,8 @@ import com.example.beachapplication.ui.theme.BeachApplicationTheme
 @Composable
 fun BottomNav(modifier: Modifier = Modifier) {
     BottomNavigation(
-        backgroundColor = MaterialTheme.colors.onPrimary,
-        modifier = modifier.clip(RoundedCornerShape(10.dp))
+        backgroundColor = MaterialTheme.colors.primaryVariant,
+        modifier = modifier.padding(start = 5.dp, end = 5.dp,bottom = 5.dp).clip(RoundedCornerShape(30.dp))
     ) {
         BottomNavigationItem(
             icon = {
