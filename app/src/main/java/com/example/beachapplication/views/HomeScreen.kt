@@ -15,15 +15,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.beachapplication.R
 import com.example.beachapplication.components.*
 import com.example.beachapplication.model.Cards
 import com.example.beachapplication.ui.theme.BeachApplicationTheme
+import com.example.beachapplication.viewmodel.DemoViewModel
 import com.example.beachapplication.viewmodel.ViewModel
 
 @Composable
 fun HomeScreen(
-    viewModel: ViewModel = ViewModel(),
+    viewModel: DemoViewModel = androidx.lifecycle.viewmodel.compose.viewModel(),
     modifier: Modifier = Modifier,
 ) {
 
@@ -107,7 +109,7 @@ fun FullApp() {
         bottomBar = { BottomNav() },
 
         ) { padding ->
-        HomeScreen(ViewModel(),Modifier.padding(padding))
+        HomeScreen(viewModel(),Modifier.padding(padding))
     }
 
 }
