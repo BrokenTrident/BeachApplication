@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.beachapplication.R
 import com.example.beachapplication.model.beachData
 import com.example.beachapplication.ui.theme.BeachApplicationTheme
 
@@ -23,7 +24,7 @@ fun CardColumn(
     ) {
 
         items(beachData) { item ->
-            BeachCard(item.drawable, item.text)
+            BeachCard(item.drawable, item.text,null, item.drawable)
         }
     }
 }

@@ -81,9 +81,18 @@ fun HomeScreen(
         
         when(index){
             
-            1-> BeachCard(drawable = R.drawable.carbay, text =R.string.carbay )
-            2-> BeachCard(drawable = R.drawable.pebbles, text =R.string.pebbles )
-            3-> BeachCard(drawable = R.drawable.needhams_point_beach, text = R.string.needhams_point )
+            1-> BeachCard(
+                drawable = R.drawable.carbay,
+                text =R.string.carbay,
+                null,
+                R.drawable.ic_baseline_local_parking_24)
+            2-> BeachCard(
+                drawable = R.drawable.pebbles,
+                text =R.string.pebbles,R.drawable.ic_baseline_wifi_24,R.drawable.ic_baseline_local_parking_24 )
+            3-> BeachCard(
+                drawable = R.drawable.needhams_point_beach,
+                text = R.string.needhams_point ,
+                null,R.drawable.ic_baseline_local_parking_24)
             else ->{
                 Text(text = "Index no $index")
             }
