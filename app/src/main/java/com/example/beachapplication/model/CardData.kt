@@ -1,7 +1,7 @@
 package com.example.beachapplication.model
 
+
 import com.example.beachapplication.R
-import java.lang.ProcessBuilder.Redirect.to
 
 
 val cardData = listOf(

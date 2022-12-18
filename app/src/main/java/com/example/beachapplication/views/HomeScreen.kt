@@ -1,31 +1,34 @@
 package com.example.beachapplication.views
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.beachapplication.R
 import com.example.beachapplication.components.*
-import com.example.beachapplication.model.Cards
 import com.example.beachapplication.ui.theme.BeachApplicationTheme
-import com.example.beachapplication.viewmodel.ViewModel
+import com.example.beachapplication.viewmodel.DemoViewModel
 
 @Composable
 fun HomeScreen(
-    viewModel: ViewModel = ViewModel(),
     modifier: Modifier = Modifier,
-) {
+    viewModel: DemoViewModel = viewModel(),
+
+    ) {
 
     var index by rememberSaveable {
         mutableStateOf(0)
@@ -33,6 +36,7 @@ fun HomeScreen(
 
     Column(
         modifier
+
             .verticalScroll(rememberScrollState())
             .padding(vertical = 16.dp)
     ) {
@@ -40,13 +44,13 @@ fun HomeScreen(
             modifier = Modifier
                 .padding(5.dp)
                 .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
+            horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = "Lets Go To the Beach",
                 fontSize = 30.sp)
-            Icon(Icons.Default.Menu, contentDescription = null)
+
         }
         Spacer(modifier = Modifier.height(10.dp))
         SearchBar()
@@ -77,9 +81,18 @@ fun HomeScreen(
         
         when(index){
             
-            1-> BeachCard(drawable = R.drawable.carbay, text =R.string.carbay )
-            2-> BeachCard(drawable = R.drawable.pebbles, text =R.string.pebbles )
-            3-> BeachCard(drawable = R.drawable.needhams_point_beach, text = R.string.needhams_point )
+            1-> BeachCard(
+                drawable = R.drawable.carbay,
+                text =R.string.carbay,
+                null,
+                R.drawable.ic_baseline_local_parking_24)
+            2-> BeachCard(
+                drawable = R.drawable.pebbles,
+                text =R.string.pebbles,R.drawable.ic_baseline_wifi_24,R.drawable.ic_baseline_local_parking_24 )
+            3-> BeachCard(
+                drawable = R.drawable.needhams_point_beach,
+                text = R.string.needhams_point ,
+                null,R.drawable.ic_baseline_local_parking_24)
             else ->{
                 Text(text = "Index no $index")
             }
@@ -107,7 +120,7 @@ fun FullApp() {
         bottomBar = { BottomNav() },
 
         ) { padding ->
-        HomeScreen(ViewModel(),Modifier.padding(padding))
+        HomeScreen(Modifier.padding(padding))
     }
 
 }

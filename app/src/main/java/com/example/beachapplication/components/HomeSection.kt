@@ -40,8 +40,7 @@ fun HomeSection(
 @Preview(showBackground = true, backgroundColor = 0xFFF0EAE2)
 @Composable
 fun HomeSectionPreview() {
-    BeachApplicationTheme(
-    ) {
+    BeachApplicationTheme {
         HomeSection(title = R.string.pebbles) {
 
 

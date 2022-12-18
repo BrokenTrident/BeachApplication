@@ -24,6 +24,8 @@ import com.example.beachapplication.ui.theme.BeachApplicationTheme
 fun BeachCard(
     @DrawableRes drawable: Int,
     @StringRes text: Int,
+    wifi: Int?,
+    parking: Int,
     modifier: Modifier = Modifier,
 ) {
 
@@ -71,15 +73,17 @@ fun BeachCard(
                     modifier = Modifier.fillMaxWidth()
                 ) {
 
-                    Icon(
-                        painter = painterResource(id = R.drawable.ic_baseline_wifi_24),
-                        contentDescription = null)
+                    wifi?.let { painterResource(it) }?.let {
+                        Icon(
+                            painter = it,
+                            contentDescription = "wifi")
+                    }
 
                     Spacer(modifier = Modifier.width(8.dp))
 
                     Icon(
-                        painter = painterResource(id = R.drawable.ic_baseline_local_parking_24),
-                        contentDescription = null)
+                        painter = painterResource(parking),
+                        contentDescription = "parking")
 
 
                 }
@@ -118,7 +122,7 @@ fun BeachCard(
 @Composable
 fun BeachCardPreview() {
     BeachApplicationTheme {
-        BeachCard(drawable = R.drawable.pebbles, text = R.string.pebbles)
+        BeachCard(drawable = R.drawable.pebbles, text = R.string.pebbles,null,R.drawable.ic_baseline_local_parking_24)
     }
 }
 
