@@ -1,6 +1,5 @@
 package com.example.beachapplication.views
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -13,7 +12,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -63,8 +61,7 @@ fun HomeScreen(
                 },
 
 
-
-            )
+                )
         }
         Spacer(modifier = Modifier.height(10.dp))
 
@@ -78,25 +75,27 @@ fun HomeScreen(
                 )
             }
         }*/
-        
-        when(index){
-            
-            1-> BeachCard(
+
+        when (index) {
+
+            1 -> BeachCard(
                 drawable = R.drawable.carbay,
-                text =R.string.carbay,
+                text = R.string.carbay,
                 null,
                 R.drawable.ic_baseline_local_parking_24)
-            2-> BeachCard(
+            2 -> BeachCard(
                 drawable = R.drawable.pebbles,
-                text =R.string.pebbles,R.drawable.ic_baseline_wifi_24,R.drawable.ic_baseline_local_parking_24 )
-            3-> BeachCard(
+                text = R.string.pebbles,
+                R.drawable.ic_baseline_wifi_24,
+                R.drawable.ic_baseline_local_parking_24)
+            3 -> BeachCard(
                 drawable = R.drawable.needhams_point_beach,
-                text = R.string.needhams_point ,
-                null,R.drawable.ic_baseline_local_parking_24)
-            else ->{
-                Text(text = "Index no $index")
+                text = R.string.needhams_point,
+                null, R.drawable.ic_baseline_local_parking_24)
+            else -> {
+
             }
-            
+
         }
 
 

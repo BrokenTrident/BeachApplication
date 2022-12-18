@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.beachapplication.R
@@ -32,10 +33,19 @@ fun SafetyColumn(
     ) {
 
 
-        SafetyCard()
-        SafetyCard()
-        SafetyCard()
-        SafetyCard()
+        SafetyCard(
+            drawable = R.drawable.hazards,
+            text = R.string.lifeguard_tips
+        )
+        SafetyCard(
+            drawable = R.drawable.rip_current,
+            text = R.string.rip_currents)
+        SafetyCard(
+            drawable = R.drawable.wildlife,
+            text = R.string.wildlife)
+
+
+
     }
 }
 
@@ -43,8 +53,8 @@ fun SafetyColumn(
 @Composable
 fun SafetyCard(
     modifier: Modifier = Modifier,
-    @DrawableRes drawable: Int = R.drawable.hazards,
-    @StringRes text: Int = R.string.hazard_title,
+    @DrawableRes drawable: Int ,
+    @StringRes text: Int ,
 
 ) {
 
@@ -70,8 +80,7 @@ fun SafetyCard(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-
-                Text("danger on this beach")
+                Text(stringResource(text))
             }
 
 
@@ -92,6 +101,6 @@ fun SafetyColumnPreview() {
 @Composable
 fun GeneratedPreview() {
     BeachApplicationTheme {
-        SafetyCard(modifier = Modifier,R.drawable.hazards)
+        SafetyCard(modifier = Modifier,R.drawable.hazards,R.string.lifeguard_tips)
     }
 }

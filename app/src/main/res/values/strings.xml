@@ -2,6 +2,7 @@
     <string name="app_name">Beach Application</string>
     <string name="pebbles">Pebbles Beach</string>
     <string name="hazard_title">Flags &amp; Signs</string>
+    <string name="lifeguard_tips"> Life Guard Tips</string>
     <string name="placeholder_search">Search Here</string>
     <string name="home_section">Discover our beaches</string>
     <string name="beach_row_title">Top Picks</string>
@@ -11,5 +12,7 @@
     <string name="needhams_point">Needham\'s Point</string>
     <string name="carbay">Carlisle Bay</string>
     <string name="rip_currents">Rip Currents</string>
+    <string name="rip_current">Rip Currents</string>
+    <string name="wildlife">Marine Life</string>
 
 </resources>
