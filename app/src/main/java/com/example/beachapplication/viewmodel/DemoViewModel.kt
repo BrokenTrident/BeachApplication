@@ -5,20 +5,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 
 class DemoViewModel: ViewModel(){
 
-    var index by mutableStateOf(0)
 
 
-    fun getIndex (index: Unit){
 
-    var result = index
-
-        return result
-    }
 
 
 
