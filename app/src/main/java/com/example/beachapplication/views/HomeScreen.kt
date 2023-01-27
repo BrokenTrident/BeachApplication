@@ -1,13 +1,16 @@
 package com.example.beachapplication.views
 
-import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,7 +22,6 @@ import com.example.beachapplication.R
 import com.example.beachapplication.components.*
 import com.example.beachapplication.ui.theme.BeachApplicationTheme
 import com.example.beachapplication.viewmodel.DemoViewModel
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
 fun HomeScreen(
@@ -28,28 +30,6 @@ fun HomeScreen(
 
     ) {
 
-    //Remember SystemUiController
-    val systemUiController = rememberSystemUiController()
-    val useDarkIcons = !isSystemInDarkTheme()
-
-
-    DisposableEffect(systemUiController, useDarkIcons ){
-
-        //Update all of the system bar colors to be transparent, and use
-        // dark icons if were in light theme
-
-        systemUiController.setStatusBarColor(
-            color = Color.Transparent,
-            darkIcons = useDarkIcons
-        )
-
-        //setStatusBarColor() and setNavigationBarColor() also exist
-
-        onDispose {  }
-
-    }
-
-    // Index for selecting top pick cards
     var index by rememberSaveable {
         mutableStateOf(0)
     }
@@ -83,7 +63,8 @@ fun HomeScreen(
                 },
 
 
-                )
+
+            )
         }
         Spacer(modifier = Modifier.height(10.dp))
 
@@ -97,27 +78,25 @@ fun HomeScreen(
                 )
             }
         }*/
-
-        when (index) {
-
-            1 -> BeachCard(
+        
+        when(index){
+            
+            1-> BeachCard(
                 drawable = R.drawable.carbay,
-                text = R.string.carbay,
+                text =R.string.carbay,
                 null,
                 R.drawable.ic_baseline_local_parking_24)
-            2 -> BeachCard(
+            2-> BeachCard(
                 drawable = R.drawable.pebbles,
-                text = R.string.pebbles,
-                R.drawable.ic_baseline_wifi_24,
-                R.drawable.ic_baseline_local_parking_24)
-            3 -> BeachCard(
+                text =R.string.pebbles,R.drawable.ic_baseline_wifi_24,R.drawable.ic_baseline_local_parking_24 )
+            3-> BeachCard(
                 drawable = R.drawable.needhams_point_beach,
-                text = R.string.needhams_point,
-                null, R.drawable.ic_baseline_local_parking_24)
-            else -> {
-
+                text = R.string.needhams_point ,
+                null,R.drawable.ic_baseline_local_parking_24)
+            else ->{
+                Text(text = "Index no $index")
             }
-
+            
         }
 
 

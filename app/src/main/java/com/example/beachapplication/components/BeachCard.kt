@@ -66,7 +66,8 @@ fun BeachCard(
 
 
 
-            Column {
+            Column(
+            ) {
                 Row(
                     horizontalArrangement = Arrangement.Start,
                     modifier = Modifier.fillMaxWidth()
